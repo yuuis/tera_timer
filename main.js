@@ -2,7 +2,7 @@ $(function(){
    
    //変数の設定-----------------------------------
    
-   var setSecond = 100; //タイマーの秒数
+   var setSecond = 0; //タイマーの秒数
    var setPause = setSecond; //ストップ時の秒数を保存する変数　初期値はsetSecondと同じ数値
    var time = setSecond;   //残り秒数を保存する変数　初期値はsetSecondと同じ数値
    var timerID;    //setInterval用の変数
@@ -13,7 +13,7 @@ $(function(){
    
    //残り秒数を表示させる関数   
    function textDisplay(){
-      $("#countDown").text(time);
+      $("#countDown").text(String(parseInt(time/60, 10)) + ' : ' + String(time%60));
    };
    
    //カウントを1減らす関数（setIntervalで毎秒実行される関数）
