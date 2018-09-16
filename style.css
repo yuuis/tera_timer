@@ -32,6 +32,7 @@
   margin-left: 50px;
   width:200px;
   height:35px;
+  text-align: center;
 }
  
 #error {
@@ -49,6 +50,7 @@ li {
     border-radius: 5px;
     box-shadow: 0 2px 4px 0 #000;
     z-index: 1;
+    radius: 30px;
 }
 
 .modalwin dl {
@@ -64,8 +66,9 @@ li {
 }
 
 .modalwin h1 {
-    background: #ededed;
+    background: deepskyblue;
     padding: 20px;
+    font: white;
     border-radius: 5px 5px 0 0;
     font-size: 1.2em;
     margin-top: 0;
@@ -128,6 +131,18 @@ li {
   margin-bottom: 20px;
 }
 
+#solveBtn .btn {
+  width: 400px;
+  height: 80px;
+  font-size: 20px;
+  border-radius: 80px;
+  color: white;
+  background-color: mediumseagreen;
+  font-family: 'Kosugi Maru', sans-serif;
+  font-family: 'Mukta Malar', sans-serif;
+  margin-bottom: 20px;
+}
+
 #col-2 {
   margin-top: 50px;
 }
@@ -139,7 +154,8 @@ p {
 
 .field {
   margin: auto;
-  width: 400px;
+  width: 300px;
+  border-radius: 50px;
 }
 
 .col-3 {
