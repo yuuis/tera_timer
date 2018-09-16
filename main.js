@@ -48,7 +48,7 @@ $(function(){
          if(time <= 0) {
             //残り秒数が0以下になったらタイマー（setInterval）をクリアー
             clearInterval(timerID);
-           showModal(event);
+           showModal(event, '残念でしたね．', '質問してみよう');
          } else {
             //残り秒数が1以上あれば1減らす
 			   countDown();
@@ -120,11 +120,11 @@ $(function(){
   $("#solveBtn").click(function() {
     // if (isTimerRunning == false) return;
     countStop();
-    // $("#finishMsg").text("Congraturation");
+    showModal(event, 'エラー解決おめでとう!．', 'この調子で頑張ろう!');
   })
  
     // モーダルウィンドウを開く
-    function showModal(event) {
+    function showModal(event, modalMsg1="", modalMsg2="") {
         event.preventDefault();
 
         var $shade = $('<div></div>');
@@ -137,6 +137,9 @@ $(function(){
         var $window = $(window);
         var posX = ($window.width() - $modalWin.outerWidth()) / 2;
         var posY = ($window.height() - $modalWin.outerHeight()) / 2;
+
+        $("#modal-msg-1").text(modalMsg1);
+        $("#modal-msg-2").text(modalMsg2);
 
         $modalWin
             .before($shade)
