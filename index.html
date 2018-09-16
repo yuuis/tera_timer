@@ -10,19 +10,9 @@
 </head>
 
 <body>
+
   <div id="countDownWrap">
     <div id="countDown"></div>
-    <ul>
-      <li id="startBtn"><button type="button" class="btn">スタート</button></li>
-      <div class="col-3">
-        <div class="col-4">
-          <li id="stopBtn"><button type="button" class="btn">ストップ</button></li>
-        </div>
-        <div class="col-4">
-          <li id="solveBtn"><button type="button" class="btn">解決</button></li>
-        </div>
-      </div>
-    </ul>
     <div id="control">
       <p>
         <!-- 何分に設定しますか: -->
@@ -32,33 +22,47 @@
           </div>
           <div class="control">
             <a class="button is-info" id=changeMinute>
-              SET
+              SET MINUTES
             </a>
           </div>
         </div>
+      </p>
+    </div>
+    <ul>
+      <li id="startBtn"><button type="button" class="btn">スタート</button></li>
+      <div class="col-3">
+        <div class="col-4">
+          <li id="stopBtn"><button type="button" class="btn">ストップ</button></li>
+        </div>
+        <div class="col-4">
+          <li id="solveBtn"><button type="button" class="btn">解決した！</button></li>
+        </div>
+      </div>
+    </ul>
 
-        <!-- modal -->
-        <!--
+    <!-- modal -->
+    <!--
 <a herf="#" class="show-modal">モーダル出現</a>
 -->
-        <div id="modalwin" class="modalwin hide">
-          <a herf="#" class="modal-close"></a>
-          <h1>タイトル</h1>
-          <div class="modalwin-contents">
-            <p>残念でしたね．</p>
-            <p>質問してみよう．</p>
-            <button>
-              <a href="https://teratail.com/questions/input" , target="_brank">
-                閉じる
-              </a>
-            </button>
-          </div>
-        </div>
+    <div id="modalwin" class="modalwin hide">
+      <a herf="#" class="modal-close"></a>
+      <h1>設定時間終了</h1>
+      <div class="modalwin-contents">
+        <p>設定時間終了!</p>
+        <p>時間内に解決できず残念でしたね．</p>
+        <p>terateilに質問してみよう．</p>
+        <button>
+          <a href="https://teratail.com/questions/input" , target="_brank">
+            閉じる
+          </a>
+        </button>
+      </div>
+    </div>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-          crossorigin="anonymous"></script>
-        <script type="text/javascript" src="main.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.5/push.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.5/push.js"></script>
 </body>
 
 </html>
