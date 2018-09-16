@@ -2,18 +2,29 @@ $(function(){
    
    //変数の設定-----------------------------------
    
-   var setSecond = 0; //タイマーの秒数
-   var setPause = setSecond; //ストップ時の秒数を保存する変数　初期値はsetSecondと同じ数値
-   var time = setSecond;   //残り秒数を保存する変数　初期値はsetSecondと同じ数値
+  // setPause, time: 秒
+  
+   var setMinute = 0; //タイマーの秒数
+   var setPause = setMinute * 60; //ストップ時の秒数を保存する変数　初期値はsetSecondと同じ数値
+   var time = setMinute * 60;   //残り秒数を保存する変数　初期値はsetSecondと同じ数値
    var timerID;    //setInterval用の変数
    
+  var isTimerRunning = false;
  
  
    //関数の設定-----------------------------------
    
    //残り秒数を表示させる関数   
    function textDisplay(){
-      $("#countDown").text(String(parseInt(time/60, 10)) + ' : ' + String(time%60));
+     charMinute = String(parseInt(time/60, 10));
+     if (charMinute.length == 1) {
+       charMinute = '0' + charMinute;
+     }
+     charSecond = String(time%60);
+     if (charSecond.length == 1) {
+       charSecond = '0' + charSecond;
+     }
+      $("#countDown").text(charMinute + ':' + charSecond);
    };
    
    //カウントを1減らす関数（setIntervalで毎秒実行される関数）
@@ -25,16 +36,19 @@ $(function(){
    
    //タイマー（setInterval）の停止用関数
 	function countStop(){
+    isTimerRunning = false;
       clearInterval(timerID); //（setInterval）をクリアー
 	}
 
      //タイマースタートの関数
-	function timerStart(){
+	function timerStart(event){
+    isTimerRunning = true;
       countStop();   //カウントダウンの重複を防ぐために今動いているタイマーをクリアーする ※1
 		timerID = setInterval(function(){
          if(time <= 0) {
             //残り秒数が0以下になったらタイマー（setInterval）をクリアー
             clearInterval(timerID);
+           showModal(event);
          } else {
             //残り秒数が1以上あれば1減らす
 			   countDown();
@@ -44,6 +58,11 @@ $(function(){
 	};
    
  
+  function finishPushAlert() {
+    Push.create('終了!', { body: '残念でした！', timeout: 8000})
+  }
+
+
  
    //実行処理-----------------------------------
    
@@ -51,10 +70,10 @@ $(function(){
    
 
      //スタートボタンクリックでタイマースタート
-   $("#startBtn").click(function(){
+   $("#startBtn").click(function(event){
        time = setPause; //setPauseに入っている秒数から開始
        textDisplay();
-       timerStart();
+       timerStart(event);
    });
    
    //ストップボタンクリックでタイマー停止
@@ -65,23 +84,23 @@ $(function(){
    //リセットボタンクリックでタイマー初期化
    $("#resetBtn").click(function(){
        countStop();
-       time = setPause = setSecond; //setSecondに入っている秒数を代入し直す
+       time = setPause = setMinute * 60; //setSecondに入っている秒数を代入し直す
        textDisplay();
    });
    
      //保存ボタンクリックで秒数変更フォームの入力チェック
-   $("#changeSecond").click(function(){
+   $("#changeMinute").click(function(){
       
        //入力欄（#setSecond input）に記入された内容をseveSecondに代入
-       var seveSecond = $("#setSecond").val();
+       var seveMinute = $("#setMinute").val();
        
        //正規表現を使用して半角数字か判別を行う
-       if(seveSecond.match( /[^0-9]+/ )){
+       if(seveMinute.match( /[^0-9]+/ )){
           //半角数字以外のものが含まれていた場合、エラーテキストを表示
           $("#error").text("※半角数字で入力してください")
        
        //seveSecondが空でないか判別を行う
-       } else if(seveSecond=='') {
+       } else if(seveMinute=='') {
           //何も入力されてない場合、エラーテキストを表示
           $("#error").text("※値を入力してください")
           
@@ -90,12 +109,52 @@ $(function(){
           //エラーテキストを空に
           $("#error").text("")
           //入力された値（seveSecond）をタイマーの秒数（setSecond）に設定
-          setSecond = seveSecond;
+          setMinute = seveMinute;
           //以下リセットボタン押下時と同じ処理
           countStop();
-          time = setPause = setSecond;
+          time = setPause = (setMinute * 60);
           textDisplay();
        }
    });
+
+  $("#solveBtn").click(function() {
+    // if (isTimerRunning == false) return;
+    countStop();
+    // $("#finishMsg").text("Congraturation");
+  })
  
+    // モーダルウィンドウを開く
+    function showModal(event) {
+        event.preventDefault();
+
+        var $shade = $('<div></div>');
+        $shade
+            .attr('id', 'shade')
+            .on('click', hideModal);
+
+
+        var $modalWin = $('#modalwin');
+        var $window = $(window);
+        var posX = ($window.width() - $modalWin.outerWidth()) / 2;
+        var posY = ($window.height() - $modalWin.outerHeight()) / 2;
+
+        $modalWin
+            .before($shade)
+            .css({left: posX, top: posY})
+            .removeClass('hide')
+            .addClass('show')
+            .on('click', 'button', function () {
+                hideModal();
+            });
+    }
+
+    function hideModal() {
+        $('#shade').remove();
+        $('#modalwin')
+            .removeClass('show')
+            .addClass('hide');
+    }
+
+    $('.show-modal').on('click', showModal);
 });
+
