@@ -11,7 +11,7 @@
   <ul>
     <li id="startBtn"><button type="button" >スタート</button></li>
      <li id="stopBtn"><button type="button" >ストップ</button></li>
-     <li id="resetBtn"><button type="button" >リセット</button></li>
+     <li id="solveBtn"><button type="button" >解決</button></li>
   </ul>
   <div id="control">
     <p>
@@ -22,10 +22,32 @@
      <p id="error"></p>
   </div>
 </div>
+<div id="finishMsg" class="container">
+</div>
+
+<!-- modal -->
+<!--
+<a herf="#" class="show-modal">モーダル出現</a>
+-->
+<div id="modalwin" class="modalwin hide">
+    <a herf="#" class="modal-close"></a>
+    <h1>タイトル</h1>
+    <div class="modalwin-contents">
+        <p>残念でしたね．</p>
+        <p>質問してみよう．</p>
+        <button>
+          <a href="https://teratail.com/questions/input", target="_brank">
+            閉じる
+          </a>
+        </button>
+    </div>
+</div>
+
 <script
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
 <script type="text/javascript" src="main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.5/push.js"></script>
 </body>
 </html>
