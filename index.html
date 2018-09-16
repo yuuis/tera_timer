@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang=“en”>
+<head>
+  <meta charset=“UTF-8">
+  <title>Teta-timer</title>
+  <link rel="stylesheet" href="style.css" type="text/css"/>
+</head>
+<body>
+<div id="countDownWrap">
+  <div id="countDown"></div>
+  <ul>
+    <li id="startBtn"><button type="button" >スタート</button></li>
+     <li id="stopBtn"><button type="button" >ストップ</button></li>
+     <li id="resetBtn"><button type="button" >リセット</button></li>
+  </ul>
+  <div id="control">
+     <p>秒数変更<input type="text" id="setSecond"><button type="button" id="changeSecond">設定</button></p>
+     <p id="error"></p>
+  </div>
+</div>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="main.js"></script>
+</body>
+</html>
