@@ -1,50 +1,55 @@
 <!DOCTYPE html>
 <html lang=“en”>
+
 <head>
   <meta charset=“UTF-8">
   <title>Teta-timer</title>
-  <link rel="stylesheet" href="style.css" type="text/css"/>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Kosugi+Maru|Mukta+Malar" rel="stylesheet">
 </head>
+
 <body>
-<div id="countDownWrap">
-  <div id="countDown"></div>
-  <ul>
-    <li id="startBtn"><button type="button" >スタート</button></li>
-     <li id="stopBtn"><button type="button" >ストップ</button></li>
-     <li id="solveBtn"><button type="button" >解決</button></li>
-  </ul>
-  <div id="control">
-    <p>
-      何分に設定しますか: 
-      <input type="text" id="setMinute">
-        <button type="button" id="changeMinute">設定</button>
-    </p>
-     <p id="error"></p>
-  </div>
-</div>
-<div id="finishMsg" class="container">
-</div>
+  <div id="countDownWrap">
+    <div id="countDown"></div>
+    <ul>
+      <li id="startBtn"><button type="button" class="btn">スタート</button></li>
+      <li id="stopBtn"><button type="button" class="btn">ストップ</button></li>
+      <li id="solveBtn"><button type="button" class="btn">解決</button></li>
+    </ul>
+    <div id="control">
+      <p>
+        <!-- 何分に設定しますか: -->
+        <div class="field has-addons">
+          <div class="control">
+            <input type="text" id="setMinute" placeholder="目標時間" class="input">
+          </div>
+          <div class="control">
+            <a class="button is-info" id=changeMinute>
+              SET
+            </a>
+          </div>
+        </div>
 
-<!-- modal -->
-<div id="modalwin" class="modalwin hide">
-    <a herf="#" class="modal-close"></a>
-    <h1>タイトル</h1>
-    <div class="modalwin-contents">
-        <p id="modal-msg-1"></p>
-        <p id="modal-msg-2"></p>
-        <button id="close-btn">
-          <a onclick="hideModal()">
-            閉じる
-          </a>
-        </button>
-    </div>
-</div>
+        <!-- modal -->
+        <div id="modalwin" class="modalwin hide">
+          <a herf="#" class="modal-close"></a>
+          <h1>タイトル</h1>
+          <div class="modalwin-contents">
+            <p id="modal-msg-1"></p>
+            <p id="modal-msg-2"></p>
+            <button id="close-btn">
+              <a onclick="hideModal()">
+                閉じる
+              </a>
+            </button>
+          </div>
+        </div>
 
-<script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-<script type="text/javascript" src="main.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.5/push.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+          crossorigin="anonymous"></script>
+        <script type="text/javascript" src="main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.5/push.js"></script>
 </body>
+
 </html>
