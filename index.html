@@ -14,8 +14,14 @@
     <div id="countDown"></div>
     <ul>
       <li id="startBtn"><button type="button" class="btn">スタート</button></li>
-      <li id="stopBtn"><button type="button" class="btn">ストップ</button></li>
-      <li id="solveBtn"><button type="button" class="btn">解決</button></li>
+      <div class="col-3">
+        <div class="col-4">
+          <li id="stopBtn"><button type="button" class="btn">ストップ</button></li>
+        </div>
+        <div class="col-4">
+          <li id="solveBtn"><button type="button" class="btn">解決</button></li>
+        </div>
+      </div>
     </ul>
     <div id="control">
       <p>
@@ -33,7 +39,7 @@
         <!-- modal -->
         <div id="modalwin" class="modalwin hide">
           <a herf="#" class="modal-close"></a>
-          <h1>タイトル</h1>
+          <h1>制限時間終了</h1>
           <div class="modalwin-contents">
             <p id="modal-msg-1"></p>
             <p id="modal-msg-2"></p>
