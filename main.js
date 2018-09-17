@@ -46,9 +46,10 @@ $(function(){
       countStop();   //カウントダウンの重複を防ぐために今動いているタイマーをクリアーする ※1
 		timerID = setInterval(function(){
          if(time <= 0) {
+            Push.create('終了!', { body: '残念でした！', timeout: 10000});
             //残り秒数が0以下になったらタイマー（setInterval）をクリアー
             clearInterval(timerID);
-           showModal(event, '残念でしたね．', '質問してみよう', "https://teratail.com/questions/input");
+            showModal(event, '残念でしたね．', '質問してみよう', "https://teratail.com/questions/input");
          } else {
             //残り秒数が1以上あれば1減らす
 			   countDown();
@@ -56,12 +57,6 @@ $(function(){
          
 		}, 1000);   //1000ミリ秒（1秒）毎にsetInterval内の処理を繰り返す
 	};
-   
- 
-  function finishPushAlert() {
-    Push.create('終了!', { body: '残念でした！', timeout: 8000})
-  }
-
 
  
    //実行処理-----------------------------------
