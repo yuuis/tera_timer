@@ -48,7 +48,7 @@ $(function(){
          if(time <= 0) {
             //残り秒数が0以下になったらタイマー（setInterval）をクリアー
             clearInterval(timerID);
-           showModal(event, '残念でしたね．', '質問してみよう');
+           showModal(event, '残念でしたね．', '質問してみよう', "https://teratail.com/questions/input");
          } else {
             //残り秒数が1以上あれば1減らす
 			   countDown();
@@ -124,13 +124,13 @@ $(function(){
   })
  
     // モーダルウィンドウを開く
-    function showModal(event, modalMsg1="", modalMsg2="") {
+    function showModal(event, modalMsg1="", modalMsg2="", redirect_url="#") {
         event.preventDefault();
 
         var $shade = $('<div></div>');
         $shade
-            .attr('id', 'shade')
-            .on('click', hideModal);
+            .attr('id', 'shade');
+            // .on('click', hideModal);
 
 
         var $modalWin = $('#modalwin');
@@ -140,15 +140,18 @@ $(function(){
 
         $("#modal-msg-1").text(modalMsg1);
         $("#modal-msg-2").text(modalMsg2);
+        if (redirect_url != '#') {
+          $("#close-btn a")
+            .attr("target", '_brank')
+            .attr("href", redirect_url);
+        }
 
         $modalWin
             .before($shade)
             .css({left: posX, top: posY})
             .removeClass('hide')
-            .addClass('show')
-            .on('click', 'button', function () {
-                hideModal();
-            });
+            .addClass('show');
+            
     }
 
     function hideModal() {
@@ -160,4 +163,11 @@ $(function(){
 
     $('.show-modal').on('click', showModal);
 });
+
+function hideModal() {
+    $('#shade').remove();
+    $('#modalwin')
+        .removeClass('show')
+        .addClass('hide');
+}
 
