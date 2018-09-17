@@ -43,9 +43,24 @@
 li {
   list-style: none;
 }
+
+#modal-msg-1, #modal-msg-2 {
+    font-size: 40px;
+    margin-left: 25%;
+}
+
+#close-btn {
+    margin-left: 45%;
+}
+#modalwin {
+    margin-left: 40%;
+    margin-top: 25%;
+}
+
 .modalwin {
     position: fixed;
-    width: 600px;
+    width: 800px;
+    height: 350px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 4px 0 #000;
