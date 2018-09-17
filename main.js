@@ -116,7 +116,7 @@ $(function(){
   $("#solveBtn").click(function() {
     // if (isTimerRunning == false) return;
     countStop();
-    showModal(event, 'エラー解決おめでとう!．', 'この調子で頑張ろう!');
+    showModal(event, 'エラー解決おめでとう！．', 'この調子で頑張ろう！');
   })
  
     // モーダルウィンドウを開く
@@ -132,8 +132,6 @@ $(function(){
 
         var $modalWin = $('#modalwin');
         var $window = $(window);
-        var posX = ($window.width() - $modalWin.outerWidth()) / 2;
-        var posY = ($window.height() - $modalWin.outerHeight()) / 2;
 
         $("#modal-msg-1").text(modalMsg1);
         $("#modal-msg-2").text(modalMsg2);
@@ -145,7 +143,6 @@ $(function(){
 
         $modalWin
             .before($shade)
-            .css({left: posX, top: posY})
             .removeClass('hide')
             .addClass('show');
             
