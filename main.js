@@ -72,6 +72,7 @@ $(function(){
      //スタートボタンクリックでタイマースタート
    $("#startBtn").click(function(event){
        time = setPause; //setPauseに入っている秒数から開始
+       document.getElementById('time').style.display = 'none';
        textDisplay();
        timerStart(event);
    });
