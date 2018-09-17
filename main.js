@@ -126,6 +126,7 @@ $(function(){
  
     // モーダルウィンドウを開く
     function showModal(event, modalMsg1="", modalMsg2="", redirect_url="#") {
+      console.log(redirect_url);
         event.preventDefault();
 
         var $shade = $('<div></div>');
