@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang=“en”>
+<html lang="en">
 
 <head>
-  <meta charset=“UTF-8">
+  <meta charset="UTF-8">
   <title>Teta-timer</title>
   <link rel="stylesheet" href="style.css" type="text/css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
@@ -10,9 +10,13 @@
 </head>
 
 <body>
-
   <div id="countDownWrap">
     <div id="countDown"></div>
+    <ul>
+      <li id="startBtn"><button type="button" class="btn">スタート</button></li>
+      <li id="stopBtn"><button type="button" class="btn">ストップ</button></li>
+      <li id="solveBtn"><button type="button" class="btn">解決</button></li>
+    </ul>
     <div id="control">
       <p>
         <!-- 何分に設定しますか: -->
@@ -26,18 +30,21 @@
             </a>
           </div>
         </div>
-      </p>
+        <!-- modal -->
+        <div id="modalwin" class="modalwin hide">
+          <a herf="#" class="modal-close"></a>
+          <h1>タイトル</h1>
+          <div class="modalwin-contents">
+            <p id="modal-msg-1"></p>
+            <p id="modal-msg-2"></p>
+            <button>
+              <a href="https://teratail.com/questions/input" , target="_brank">
+                閉じる
+              </a>
+            </button>
+          </div>
+        </div>
     </div>
-    <ul>
-      <li id="startBtn"><button type="button" class="btn">スタート</button></li>
-      <div class="col-3">
-        <div class="col-4">
-          <li id="stopBtn"><button type="button" class="btn">ストップ</button></li>
-        </div>
-        <div class="col-4">
-          <li id="solveBtn"><button type="button" class="btn">解決した！</button></li>
-        </div>
-      </div>
     </ul>
 
     <!-- modal -->
