@@ -50,7 +50,6 @@ li {
     border-radius: 5px;
     box-shadow: 0 2px 4px 0 #000;
     z-index: 1;
-    radius: 30px;
 }
 
 .modalwin dl {
@@ -68,7 +67,7 @@ li {
 .modalwin h1 {
     background: deepskyblue;
     padding: 20px;
-    font: white;
+    color: white;
     border-radius: 5px 5px 0 0;
     font-size: 1.2em;
     margin-top: 0;
